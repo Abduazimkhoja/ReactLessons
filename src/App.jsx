@@ -1,6 +1,6 @@
 import React from 'react'
-import Student from './state';
-import "./App.css";
+import Student from './table';
+import "./App.scss";
 
 class App extends React.Component {
    render() {
