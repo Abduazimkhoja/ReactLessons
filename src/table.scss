@@ -1,38 +1,83 @@
+.search {
+   padding: 20px;
+   input {
+      width: 50%;
+   }
+}
+
+input {
+   height: 20px;
+   padding-left: 4px;
+
+   border: none;
+   outline: none;
+   border-bottom: 2px solid #efefef;
+
+   transition: border 0.3s ease;
+
+   &:focus,
+   &:hover {
+      border-bottom: 2px solid #4b8dcc;
+   }
+}
+
 .table {
-   text-align: center;
-   & th {
-      padding: 8px 16px;
-   }
-   &__head {
-   }
+   width: 100%;
+   border-collapse: collapse;
 
-   &__title {
-   }
+   & tr {
+      height: 44px;
+      border-bottom: 1px solid #14aa9e53;
+      transition: background 0.2s ease;
 
-   &__body {
-      & td {
-         max-width: 70px;
-      }
-   }
-
-   &__value {
-   }
-
-   &__edit {
-      width: 100%;
-      height: 100%;
-      border: none;
-      cursor: pointer;
-      color: #5db948;
       &:hover {
-         color: #3fa029;
+         background-color: #14aa9e13;
       }
    }
-   &__input {
-      border: 1px solid #a5a5a5;
-      width: -webkit-fill-available;;
-      &-active {
 
+   & th,
+   & td {
+      padding: 0 20px;
+   }
+
+   &__head {
+      background-color: #14aa9e;
+      & th {
+         color: #ffffff;
+      }
+   }
+}
+
+#table__button {
+   display: flex;
+   height: inherit;
+   padding: 0px;
+
+   & button {
+      width: 100%;
+      height: inherit;
+      padding: 0 20px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 12px;
+      font-weight: 600;
+      color: #14aa9e;
+
+      text-transform: uppercase;
+
+      border: none;
+      transition: background 0.2s ease, color 0.2s ease;
+
+      &:hover {
+         color: #fff;
+         background: #14aa9e;
+      }
+
+      &:active {
+         font-size: 11px;
       }
    }
 }
