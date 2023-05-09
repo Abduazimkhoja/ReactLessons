@@ -1,0 +1,57 @@
+.card {
+   width: 400px;
+   min-height: 300px;
+
+   padding: 50px 20px;
+
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   gap: 12px;
+
+   flex: 1 0 0;
+   min-width: 400px;
+
+   background: #fff;
+   border: 4px solid #fff;
+   box-shadow: 0 0 20px 0px #eeeeee;
+   border-radius: 20px;
+   transition: stroke 0.3s ease, border 0.3s ease;
+   &:hover {
+      border: 4px solid #52aed6a7;
+      & .card__icon path {
+         stroke: #387cc6;
+      }
+   }
+   &__icon path {
+      transition: stroke 0.3s ease;
+   }
+   &__logo {
+      width: 100px;
+      height: 100px;
+
+      border-radius: 50%;
+      background: #ecc92c;
+   }
+
+   &__title {
+      font-size: 18px;
+      font-weight: 700;
+      text-transform: capitalize;
+      color: #3b3b3b;
+   }
+
+   &__subtitle {
+      font-size: 14px;
+   }
+
+   &__button {
+      width: 250px;
+      height: 44px;
+      border-radius: 5px;
+      &:hover {
+         background: #e3e3e3;
+      }
+   }
+}

@@ -1,0 +1,15 @@
+
+.view {
+   margin-top: 20px;
+   
+   &__info {
+      margin-bottom: 10px;
+      display: flex;
+      gap: 5px;
+      & p {
+         text-transform: capitalize;
+         font-size: 18px;
+         font-weight: 700;
+      }
+   }
+}
