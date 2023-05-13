@@ -1,5 +1,5 @@
 import "./App.scss";
-import User from "./lesson/props";
+import User from "./lesson/";
 
 
 function App() {
