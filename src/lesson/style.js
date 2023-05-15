@@ -1,4 +1,13 @@
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
+
+const animate = keyframes`
+   from {
+      transform: rotate(0deg);
+   }
+   to {
+      transform: rotate(360deg);
+   }
+`
 
 const boxWidth = ({ type }) =>
    ({ small: "100px", medium: "150px", large: "200px" }[type || "medium"]);
@@ -25,3 +34,7 @@ export const Box = styled.div`
    }
 `;
 
+export const BoxRed = styled(Box)`
+   background: #f00;
+   animation: ${animate} 2s linear infinite;
+`
