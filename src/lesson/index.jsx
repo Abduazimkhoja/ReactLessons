@@ -1,29 +1,33 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useState } from "react";
 
 export default function Lesson() {
-   // const [counter, dispatch] = useReducer(()=>{}, 0) // dispatch запускает callback function
+   const [counter, dispatch] = useReducer((state, action) => action, {
+      selected: 1,
+      count: 0,
+   });
 
-   // const [counter, dispatch] = useReducer(() => "callback", 0);
-   // return callback присваивается в counter
-
-   const reducer = (state, action) =>
-      ({
-         plus: state + (action.payload || 1),
-         minus: state - (action.payload || 1),
-         state,
-      }[action.type || "state"]);
-
-   const [counter, dispatch] = useReducer(reducer, 0);
-   // у callback есть 2 параметра. первый это само значение, второе это параметр указаный в despatch
-
-   // return callback присваивается в counter
+   let { count, selected } = counter;
+   
    return (
       <div>
-         <h1>{counter}</h1>
-         <button onClick={() => dispatch({ type: "minus" })}>minus</button>
-         <button onClick={() => dispatch({ type: "plus" })}>plus</button>
-         <button onClick={() => dispatch({ type: "plus", payload: 20 })}>
-            pyload 20
+         <h1>{counter.count}</h1>
+
+         <select
+            onChange={({ target: { value } }) =>
+               dispatch({ ...counter, selected: +value })
+            }
+         >
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+         </select>
+
+         <button
+            onClick={() => dispatch({ ...counter, count: count + selected })}
+         >
+            Add {selected}
          </button>
       </div>
    );
