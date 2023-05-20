@@ -1,21 +1,15 @@
 import React, { useState } from "react";
+import { Image } from "./style";
 
 export const Lesson = () => {
-   const [data, setData] = useState({ name: "John", count: 0 }); // DE structuring useState
-
+   const [product, setProduct] = useState(0);
    return (
       <div>
-         <div>{data.name}</div>
-         <input
-            value={data.name}
-            type="text"
-            onChange={(event) => setData({ ...data, name: event.target.value })}
-         />
-         <div>{data.count}</div>
-         <button onClick={() => setData({ ...data, count: data.count + 1 })}>
-            {" "}
-            click
-         </button>
+         <Image>
+            <button onClick={() => setProduct(product + 1)}>plus</button>
+            {product}
+            <button onClick={() => setProduct(product - 1)}>minus</button>
+         </Image>
       </div>
    );
 };
