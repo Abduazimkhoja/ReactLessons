@@ -1,11 +1,8 @@
 import React from 'react'
 
-export default class Lesson extends React.Component {
-   render () {
-      return (
-         <>
-            
-         </>
-      )
-   }
+export default function Lesson() {
+  return (
+    <div>Lesson</div>
+  )
 }
+

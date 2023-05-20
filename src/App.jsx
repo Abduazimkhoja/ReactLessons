@@ -1,13 +1,6 @@
-import React from 'react'
-import "./App.css";
+import React from "react";
 import Lesson from "./lesson";
 
-export default class App extends React.Component {
-   render() {
-      return (
-         <>
-            <Lesson />
-         </>
-      );
-   }
+export default function App() {
+   return <Lesson />;
 }
