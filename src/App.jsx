@@ -1,10 +1,10 @@
-import "./App.scss";
-import User from "./lesson/";
+
+import Lesson from "./lesson/";
 
 
 function App() {
    return <div className="App">
-      <User/>
+      <Lesson type={"true"}/>
    </div>;
 }
 

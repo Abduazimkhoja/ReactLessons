@@ -1,41 +1,66 @@
-import React, { useState } from "react";
-import { people } from "../mock";
-import { Box, BoxRed } from "./style";
+import React from "react";
+import FuncComponent from "../function component";
 
-import { ThemeProvider, createGlobalStyle } from "styled-components";
-
-const GlobalStyle = createGlobalStyle`
-   body {
-      background: ${(props) => props.theme.bg} ;
-      color: ${(props) => props.theme.cl} ;
+export default class Lesson extends React.Component {
+   constructor(props) {
+      super(props);
+      this.state = {
+         count: 0,
+      };
+      console.log("constructor");
    }
-`;
 
-export default class User extends React.Component {
-   state = {
-      theme: false,
-   };
+   componentWillMount() {
+      // до render
+      console.log("componentWillMount");
+   }
+
+   componentDidMount() {
+      // после render
+      console.log("componentDidMount");
+   }
+
+   componentWillReceiveProps() {
+      // когда пришол prop
+      console.log("componentWillReceiveProps");
+   }
+
+   shouldComponentUpdate() {
+      // обновлятли component?
+      console.log("shouldComponentUpdate");
+      return true; // обновлять, On reRender
+      // return false; // не обновлять, Off reRender
+   }
+
+   componentWillUpdate() {
+      // до render, после prop
+      console.log("componentWillUpdate");
+   }
+
+   componentDidUpdate() {
+      // после перерисовки или рисовки DOM
+      console.log("componentDidUpdate");
+   }
+
+   componentWillUnmount() {
+      // после удаления элемента из DOM
+      console.log("componentWillUnmount");
+   }
 
    render() {
-      const theme = {
-         bg: this.state.theme ? "white" : "black",
-         cl: this.state.theme ? "black" : "white",
-      };
+      console.log("render");
 
       return (
-         <ThemeProvider theme={theme}>
-            <GlobalStyle />
-            <button onClick={() => this.setState({ theme: !this.state.theme })}>
-               RE Theme
+         <>
+            {this.state.count}
+            <button
+               onClick={() => this.setState({ count: this.state.count + 1 })}
+            >
+               up + 1
             </button>
-            <Box type="small">small</Box>
-            <Box type="medium">medium</Box>
-            <Box type="large">large</Box>
-            <Box>
-               large <h1 className="h1">h1</h1>
-            </Box>
-            <BoxRed>Box red</BoxRed>
-         </ThemeProvider>
+
+            {this.state.count % 2 == 0 ? <FuncComponent/>: <button>Button</button>}
+         </>
       );
    }
 }
