@@ -1,31 +1,23 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useContext, useEffect, useReducer, useState } from "react";
+import { StudentContext } from "../context";
 
 export default function Lesson() {
-   const [counter, dispatch] = useReducer(
-      (state, action) =>
-         ({
-            plus: { ...state, count: state.count + state.payload },
-            minus: { ...state, count: state.count - state.payload },
-            payload: { ...state, payload: action },
-         }[action.type || "payload"]),
-      {
-         count: 0,
-         payload: 1,
-      }
-   );
-
+   const [students, setStudents] = useContext(StudentContext);
+   const onDelete = (id) => {
+      setStudents(students.filter((v) => v.id !== id));
+   };
    return (
       <div>
-         <select onChange={({ target }) => dispatch(Number(target.value))}>
-            <option value={1}>1</option>
-            <option value={2}>2</option>
-            <option value={3}>3</option>
-            <option value={4}>4</option>
-            <option value={5}>5</option>
-         </select>
-         {counter.count}
-         <button onClick={() => dispatch({ type: "plus" })}>plus</button>
-         <button onClick={() => dispatch({ type: "minus" })}>minus</button>
+         {students.map(({ id, name }) => {
+            return (
+               <div>
+                  <h1>
+                     {id} - {name}
+                  </h1>
+                  <button onClick={() => onDelete(id)}>delete</button>
+               </div>
+            );
+         })}
       </div>
    );
 }
