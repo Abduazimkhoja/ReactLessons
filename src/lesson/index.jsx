@@ -1,19 +1,53 @@
-import React, { useContext } from "react";
-import { StudentContext } from "../context";
+import { useState } from "react";
+import {
+   Container,
+   ContainerDark,
+   Login,
+   LoginDark,
+   SwitchThemes,
+} from "./style";
 
 export default function Lesson() {
-   const [students, setStudents] = useContext(StudentContext);
-   const onDelete = (id) => {
-      setStudents(students.filter((v) => v.id !== id));
-   };
+   const [theme, setTheme] = useState(true);
    return (
-      <div>
-         {students.map((v) => (
-            <p>
-               {v.id} {v.name}
-               <button onClick={() => onDelete(v.id)}>Delete</button>
-            </p>
-         ))}
-      </div>
+      // <Container>
+      <>
+         {theme ? (
+            <>
+               <Container>
+                  <Login.wrap>
+                     <Login.title>Login</Login.title>
+                     <form>
+                        <Login.input type="text" placeholder="Username" />
+                        <Login.input type="password" placeholder="Password" />
+                        <Login.button>Login</Login.button>
+                     </form>
+                  </Login.wrap>
+               </Container>
+               <SwitchThemes onClick={() => setTheme(!theme)}>
+                  Dark
+               </SwitchThemes>
+            </>
+         ) : (
+            <>
+               <ContainerDark>
+                  <LoginDark.wrap>
+                     <LoginDark.title>Login</LoginDark.title>
+                     <form>
+                        <LoginDark.input type="text" placeholder="Username" />
+                        <LoginDark.input
+                           type="password"
+                           placeholder="Password"
+                        />
+                        <LoginDark.button>Login</LoginDark.button>
+                     </form>
+                  </LoginDark.wrap>
+               </ContainerDark>
+               <SwitchThemes onClick={() => setTheme(!theme)}>
+                  Light
+               </SwitchThemes>
+            </>
+         )}
+      </>
    );
 }
