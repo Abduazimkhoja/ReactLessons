@@ -1,7 +1,15 @@
-import React from 'react'
+import React, { memo } from "react";
 
-export default function Two() {
-  return (
-    <div>Two</div>
-  )
-}
+const Two = (props) => {
+   console.log("child");
+
+   return (
+      <div>
+         child
+         {props.dataMemo.title}
+         {props.dataCall().title}
+      </div>
+   );
+};
+
+export default memo(Two);
