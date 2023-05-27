@@ -1,6 +1,16 @@
 import React from "react";
-import Lesson from "./lesson";
+import One from "./components/one";
+import Two from "./components/two";
+import Three from "./components/three copy";
+import Four from "./components/four";
 
 export default function App() {
-   return <Lesson />;
+   return (
+      <>
+         <One />
+         <Two />
+         <Three />
+         <Four />
+      </>
+   );
 }
